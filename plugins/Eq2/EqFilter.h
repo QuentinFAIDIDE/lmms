@@ -151,7 +151,7 @@ public :
 		float w0 = F_2PI * m_freq / m_sampleRate;
 		float c = cosf( w0 );
 		float s = sinf( w0 );
-		float alpha = s / ( 2 * m_res );
+		float alpha = s*2 / ( 2 * m_res );
 
 		float a0, a1, a2, b0, b1, b2; // coeffs to calculate
 
@@ -196,7 +196,7 @@ public :
 		float w0 = F_2PI * m_freq / m_sampleRate;
 		float c = cosf( w0 );
 		float s = sinf( w0 );
-		float alpha = s / ( 2 * m_res );
+		float alpha = s*2 / ( 2 * m_res );
 
 		float a0, a1, a2, b0, b1, b2; // coeffs to calculate
 

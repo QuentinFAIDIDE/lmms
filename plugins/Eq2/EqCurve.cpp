@@ -37,7 +37,7 @@ EqHandle::EqHandle( int num, int x, int y ):
 	setFlag( ItemIsMovable );
 	setFlag( ItemSendsGeometryChanges );
 	setAcceptHoverEvents( true );
-	float totalHeight = 36;
+	float totalHeight = 60;
 	m_pixelsPerUnitHeight = ( m_heigth ) / ( totalHeight );
 	setMouseHover( false );
 }
@@ -169,7 +169,6 @@ QPainterPath EqHandle::getCurvePath()
 void EqHandle::loadPixmap()
 {
 	QString fileName = "handle" + QString::number(m_numb+1);
-	if ( !isActiveHandle() ) { fileName = fileName + "inactive"; }
 	m_circlePixmap = PLUGIN_NAME::getIconPixmap( fileName.toLatin1() );
 }
 
@@ -691,6 +690,8 @@ void EqCurve::paint( QPainter *painter, const QStyleOptionGraphicsItem *option, 
 				activeHandles++;
 			}
 		}
+		// force display of all handles
+		activeHandles=0;
 		//Computes the main curve
 		//if a band is active the curve will be computed by averaging the curves of each band
 		QMap<float,float> mainCurve;
